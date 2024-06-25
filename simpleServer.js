@@ -1,4 +1,7 @@
-const http = require('http');
+//const http = require('http');
+
+const express = require('express')
+
 
 const server = http.createServer((req, res) => {
     // Set default status code and content type
@@ -6,6 +9,8 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/plain');
 
     // Handle different routes
+    if (req.method === 'POST')
+    {
     if (req.url === '/about') {
         res.end('About Us\n');
     } else if (req.url === '/contact') {
@@ -15,10 +20,9 @@ const server = http.createServer((req, res) => {
         res.statusCode = 404;
         res.end('404 Not Found\n');
     }
-});
+}});
 
-const PORT = 3001;
 
-server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
-});
+
+const PORT = 3013
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
