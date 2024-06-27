@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+app.use(express.json());
+
 
 let books = [
     { id: 1, title: '1984', author: 'George Orwell' },
